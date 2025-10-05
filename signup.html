@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - BiteBurst</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="auth-card">
+        <h2>Create an Account</h2>
+
+        <form id="signupForm">
+            <div class="input-group">
+                <input type="text" id="signupUsername" required placeholder=" ">
+                <label for="signupUsername">Username</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="signupEmail" required placeholder=" ">
+                <label for="signupEmail">Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="signupPassword" required placeholder=" ">
+                <label for="signupPassword">Password</label>
+                <span class="toggle-password" data-target="signupPassword">👁️</span>
+            </div>
+
+            <button type="submit">Sign Up</button>
+
+            <div id="signupMsg" style="color: red; text-align: center; margin-top: 10px;"></div>
+        </form>
+
+        <p class="redirect-text">
+            Already have an account? <a href="login.html">Login</a>
+        </p>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Redirect logged-in users automatically
+        window.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("isAdminLoggedIn")) {
+                window.location.href = "dashboard.html";
+            } else if (localStorage.getItem("isUserLoggedIn")) {
+                window.location.href = "menu.html";
+            }
+        });
+    </script>
+</body>
+</html>
